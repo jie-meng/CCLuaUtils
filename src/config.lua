@@ -15,12 +15,21 @@ CC_DISABLE_GLOBAL = true
 CC_DESIGN_RESOLUTION = {
     width = 960,
     height = 640,
-    autoscale = "FIXED_HEIGHT",
-    callback = function(framesize)
-        local ratio = framesize.width / framesize.height
-        if ratio <= 1.34 then
-            -- iPad 768*1024(1536*2048) is 4:3 screen
-            return {autoscale = "FIXED_WIDTH"}
-        end
-    end
+    autoscale = "SHOW_ALL",
+    --callback = function(framesize)
+    --    local ratio = framesize.width / framesize.height
+    --    if ratio <= 1.34 then
+    --        -- iPad 768*1024(1536*2048) is 4:3 screen
+    --        return {autoscale = "FIXED_WIDTH"}
+    --    end
+    --end
 }
+
+--STUB_CHAPTER_JUMP_TO = 24
+--STUB_SHOW_ROLE_BODY_RANGE = true
+--STUB_SHOW_OBJECT_RECT = true
+--STUB_SHOW_TILEDMAP_META = true
+--STUB_SHOW_TILEDMAP_OBJECTS = true
+--STUB_CHEAT_SUPER_GUN = true
+--STUB_OPEN_EXTRA_MODE = true
+--STUB_DISABLE_AD = true
