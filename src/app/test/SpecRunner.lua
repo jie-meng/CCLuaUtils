@@ -1,22 +1,14 @@
 local CalculationSpec = import("app.test.spec.utils.CalculationSpec")
 local GeometrySpec = import("app.test.spec.utils.GeometrySpec")
 local TimerSpec = import("app.test.spec.utils.timer.TimerSpec")
+local SpecLoader = import(".SpecLoader")
 
 local SpecRunner = class("SpecRunner")
 
 function SpecRunner:ctor()
-    self.specs_ = nil
-    self:loadSpec()
-    
+    self.spec_loader_ = SpecLoader:create()
     self.success_ = 0
     self.fail_ = 0
-end
-
-function SpecRunner:loadSpec()
-    self.specs_ = {}
-    table.insert(self.specs_, CalculationSpec:create())
-    table.insert(self.specs_, GeometrySpec:create())
-    table.insert(self.specs_, TimerSpec:create())
 end
 
 function SpecRunner:start()
@@ -24,7 +16,7 @@ function SpecRunner:start()
 
     self:clear()
 
-    for i, v in ipairs(self.specs_) do
+    for i, v in ipairs(self.spec_loader_:getSpecs()) do
         v:clear()
         v:run()
         self.success_ =  self.success_ + v:getSuccess()
