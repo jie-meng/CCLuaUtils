@@ -1,5 +1,6 @@
-local CalculationSpec = import("app.test.spec.CalculationSpec")
-local GeometrySpec = import("app.test.spec.GeometrySpec")
+local CalculationSpec = import("app.test.spec.utils.CalculationSpec")
+local GeometrySpec = import("app.test.spec.utils.GeometrySpec")
+local TimerSpec = import("app.test.spec.utils.timer.TimerSpec")
 
 local SpecRunner = class("SpecRunner")
 
@@ -14,11 +15,12 @@ end
 function SpecRunner:loadSpec()
     self.specs_ = {}
     table.insert(self.specs_, CalculationSpec:create())
-    table.insert(self.specs_, GeometrySpec.create())
+    table.insert(self.specs_, GeometrySpec:create())
+    table.insert(self.specs_, TimerSpec:create())
 end
 
 function SpecRunner:start()
-    printInfo('\n\n****************************\n      SpecRunner start\n****************************\n\n')
+    printInfo('\n\n********************************************************\n                    SpecRunner start\n********************************************************\n\n')
 
     self:clear()
 
@@ -31,7 +33,7 @@ function SpecRunner:start()
     
     self:summary()
     
-    printInfo('\n\n****************************\n      SpecRunner end\n****************************\n\n')
+    printInfo('\n\n********************************************************\n                    SpecRunner end\n********************************************************\n\n')
 end
 
 function SpecRunner:clear()
@@ -40,11 +42,11 @@ function SpecRunner:clear()
 end
 
 function SpecRunner:summary()
-    local print_func = printInfo
+    local emoji = 'ᕦ(ò_óˇ)ᕤ'
     if self.fail_ > 0 then
-        print_func = printError
+        emoji = '༼ ༎ຶ ෴ ༎ຶ༽'
     end
-    print_func('\n\n  Run %d tests totally, %d success, %d fail.\n', self.success_ + self.fail_, self.success_, self.fail_)
+    printInfo('\n\n  TestResult: Run %d tests totally, %d success, %d fail.        %s\n', self.success_ + self.fail_, self.success_, self.fail_, emoji)
 end
     
 return SpecRunner

@@ -3,10 +3,6 @@ local Calculation = import("app.utils.Calculation")
 
 local CalculationSpec = class("CalculationSpec", Spec)
 
-function CalculationSpec:ctor()
-    CalculationSpec.super.ctor(self)
-end
-
 function CalculationSpec:run()
     self:describe('Calculation', function ()
         
@@ -106,7 +102,7 @@ function CalculationSpec:run()
         end)
         
         self:describe('targetDirection', function ()
-            self:describe('with invalid argument', function ()
+            self:describe('given invalid argument', function ()
                 self:it('should return null when self_position not given', function ()
                     assert(Calculation.targetDirection(undefined, cc.p(100, 100)) == nil)
                 end)
@@ -116,7 +112,7 @@ function CalculationSpec:run()
                 end)
             end)
 
-            self:describe('with self_position (100, 100)', function ()
+            self:describe('given self_position (100, 100)', function ()
                 local self_position = cc.p(100, 100);
 
                 self:it('should return 0 when targetPos is (200, 100)', function ()
