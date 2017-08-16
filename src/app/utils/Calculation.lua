@@ -22,7 +22,7 @@ end
 
 function Calculation.targetDirection(self_position, target_position)
     if self_position and target_position then
-        local degree = math.abs(math.deg(math.atan((target_position.y - position.y) / (target_position.x - position.x))))
+        local degree = math.abs(math.deg(math.atan((target_position.y - self_position.y) / (target_position.x - self_position.x))))
         
         if target_position.y - self_position.y >= 0 and target_position.x - self_position.x >= 0 then
             return Calculation.trimDeg(360 - degree)
