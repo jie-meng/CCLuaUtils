@@ -9,8 +9,9 @@ end
 
 function CalculationSpec:run()
     self:describe('Calculation', function ()
-    
+        
         self:describe('trimDeg', function ()
+        
             self:it('should return 0 when value is 0', function ()
                 assert(Calculation.trimDeg(0) == 0)
             end)
