@@ -1,4 +1,5 @@
 local CalculationSpec = import("app.test.spec.CalculationSpec")
+local GeometrySpec = import("app.test.spec.GeometrySpec")
 
 local SpecRunner = class("SpecRunner")
 
@@ -13,6 +14,7 @@ end
 function SpecRunner:loadSpec()
     self.specs_ = {}
     table.insert(self.specs_, CalculationSpec:create())
+    table.insert(self.specs_, GeometrySpec.create())
 end
 
 function SpecRunner:start()

@@ -34,6 +34,10 @@ function Spec:before(callable)
     callable()
 end
 
+function Spec:after(callable)
+    callable()
+end
+
 function Spec:run()
 end
 
