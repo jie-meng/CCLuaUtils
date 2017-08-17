@@ -39,7 +39,15 @@ function Timer:passTime(dt)
 end
 
 function Timer:getState()
-    return { interval_passed_time = self.interval_passed_time_, times = self.times_, interval = self.interval_, trigger_times = self.trigger_times_ }
+    return { interval_passed_time = self.interval_passed_time_, times = self.times_ }
+end
+
+function Timer:getTriggerTimes()
+    return self.trigger_times_
+end
+
+function Timer:getInterval()
+    return self.interval_
 end
 
 function Timer:stop()

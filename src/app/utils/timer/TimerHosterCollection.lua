@@ -5,7 +5,7 @@ function TimerHosterCollection:ctor()
 end
 
 function TimerHosterCollection:clear()
-    self.collection_ = {}
+    table.clear(self.collection_)
 end
 
 function TimerHosterCollection:addTimerHoster(timer_owner)
@@ -18,10 +18,10 @@ function TimerHosterCollection:addTimerHosters(timer_owners)
     end
 end
 
-function TimerHosterCollection:updateTimers(dt)
-    for _, v in pairs(self.collection_) do
-        v:updateTimers(dt)
-    end
+function TimerHosterCollection:passTime(dt)
+    table.walk(self.collection_, function (v)
+        v:passTime(dt)
+    end)
 end
 
 return TimerHosterCollection

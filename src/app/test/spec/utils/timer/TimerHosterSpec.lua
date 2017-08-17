@@ -2,7 +2,7 @@ local Spec = import('app.test.Spec')
 local Timer = import('app.utils.timer.Timer')
 local TimerHoster = import('app.utils.timer.TimerHoster')
 
-local TimerHosterSpec = class('TimerHostSpec', Spec)
+local TimerHosterSpec = class('TimerHosterSpec', Spec)
 
 function TimerHosterSpec:run()
     self:describe('TimerHoster', function ()
@@ -43,12 +43,12 @@ function TimerHosterSpec:run()
                 self:assertNil(timer_hoster:getTimer(tostring(timer2)))
             end)
             
-            self:it('should get timer1 state (trigger_times == 3) with id = tostring(timer1)', function ()
-                self:assertEquals(3, timer_hoster:getTimerState(tostring(timer1)).trigger_times)
+            self:it('should get timer1 (trigger_times == 3) with id = tostring(timer1)', function ()
+                self:assertEquals(3, timer_hoster:getTimer(tostring(timer1)):getTriggerTimes())
             end)
             
-            self:it('should get timer2 state (trigger_times == 5) with id = tostring(timer2)', function ()
-                self:assertEquals(5, timer_hoster:getTimerState(tostring(timer2)).trigger_times)
+            self:it('should get timer2 (trigger_times == 5) with id = tostring(timer2)', function ()
+                self:assertEquals(5, timer_hoster:getTimer(tostring(timer2)):getTriggerTimes())
             end)
             
             self:it('should keep timer1 and timer2 after 2.9 seconds passed', function ()

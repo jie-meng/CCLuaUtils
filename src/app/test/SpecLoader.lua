@@ -2,6 +2,7 @@ local CalculationSpec = import('app.test.spec.utils.CalculationSpec')
 local GeometrySpec = import('app.test.spec.utils.GeometrySpec')
 local TimerSpec = import('app.test.spec.utils.timer.TimerSpec')
 local TimerHosterSpec = import('app.test.spec.utils.timer.TimerHosterSpec')
+local TimerHosterCollectionSpec = import('app.test.spec.utils.timer.TimerHosterCollectionSpec')
 
 local SpecLoader = class('SpecLoader')
 
@@ -20,6 +21,7 @@ function SpecLoader:load()
     table.insert(self.specs_, GeometrySpec:create())
     table.insert(self.specs_, TimerSpec:create())
     table.insert(self.specs_, TimerHosterSpec:create())
+    table.insert(self.specs_, TimerHosterCollectionSpec:create())
 end
 
 return SpecLoader
