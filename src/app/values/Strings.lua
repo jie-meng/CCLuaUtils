@@ -1,5 +1,5 @@
-local Strings = class("Strings")
+local Strings = class('Strings')
 
-Strings.GameTitle = "TestGame"
+Strings.GameTitle = 'TestGame'
 
 return Strings

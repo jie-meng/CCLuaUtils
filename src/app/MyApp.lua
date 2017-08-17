@@ -6,7 +6,7 @@ function MyApp:onCreate()
     math.randomseed(os.time())
     cc.Director:getInstance():setProjection(cc.DIRECTOR_PROJECTION2_D)
     
-    if STUB_TEST then
+    if SWITCH_TEST then
         local spec_runner = SpecRunner:create()
         spec_runner:start()
     end

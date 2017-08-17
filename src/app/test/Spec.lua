@@ -1,6 +1,6 @@
-local Table = import("app.utils.Table")
+local Table = import('app.utils.Table')
 
-local Spec = class("Spec")
+local Spec = class('Spec')
 
 function Spec:ctor()
     self.success_ = 0
@@ -43,13 +43,13 @@ function Spec:it(name, callable)
     end
 end
 
-function Spec:before(callable)
+function Spec:beforeEach(callable)
     if self.indent_ > 0 then
         self.before_funcs_[self.indent_] = callable    
     end
 end
 
-function Spec:after(callable)
+function Spec:afterEach(callable)
     if self.indent_ > 0 then
         self.after_funcs_[self.indent_] = callable
     end
@@ -70,8 +70,8 @@ function Spec:clear()
     self.success_ = 0
     self.fail_ = 0
     self.indent_ = 0
-    self.before_funcs_ = {}
-    self.after_funcs_ = {}
+    Table.clear(self.before_funcs_)
+    Table.clear(self.after_funcs_)
 end
 
 function Spec:addIndent()

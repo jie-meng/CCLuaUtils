@@ -1,4 +1,4 @@
-local Geometry = class("Geometry")
+local Geometry = class('Geometry')
 
 function Geometry.line(x1, y1, x2, y2)
         if not x2 and not y2 then

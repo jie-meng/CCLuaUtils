@@ -1,9 +1,6 @@
-local CalculationSpec = import("app.test.spec.utils.CalculationSpec")
-local GeometrySpec = import("app.test.spec.utils.GeometrySpec")
-local TimerSpec = import("app.test.spec.utils.timer.TimerSpec")
-local SpecLoader = import(".SpecLoader")
+local SpecLoader = import('.SpecLoader')
 
-local SpecRunner = class("SpecRunner")
+local SpecRunner = class('SpecRunner')
 
 function SpecRunner:ctor()
     self.spec_loader_ = SpecLoader:create()

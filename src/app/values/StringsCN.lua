@@ -1,5 +1,5 @@
-local StringsCN = class("StringsCN")
+local StringsCN = class('StringsCN')
 
-Strings.GameTitle = "测试游戏"
+Strings.GameTitle = '测试游戏'
 
 return StringsCN

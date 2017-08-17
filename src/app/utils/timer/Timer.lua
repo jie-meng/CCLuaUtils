@@ -1,4 +1,4 @@
-local Timer = class("Timer")
+local Timer = class('Timer')
 
 function Timer:ctor(interval, start_after, trigger_times, on_time, on_time_obj)
     self.interval_ = interval
@@ -22,7 +22,9 @@ function Timer:passTime(dt)
             if self.interval_passed_time_ >= self.interval_ then
                 self.interval_passed_time_ = self.interval_passed_time_ - self.interval_
                 self.times_ = self.times_ + 1
-                self.on_time_(self.on_time_obj_)
+                if self.on_time_ then
+                    self.on_time_(self.on_time_obj_)
+                end
                 
                 if self.trigger_times_ > 0 then
                     if self.times_ >= self.trigger_times_ then

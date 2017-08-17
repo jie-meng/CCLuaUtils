@@ -1,4 +1,4 @@
-local Calculation = class("Calculation")
+local Calculation = class('Calculation')
 
 function Calculation.trimDeg(direction)
     local d = direction % 360

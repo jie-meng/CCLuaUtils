@@ -1,7 +1,7 @@
-local Spec = import("app.test.Spec")
-local Geometry = import("app.utils.Geometry")
+local Spec = import('app.test.Spec')
+local Geometry = import('app.utils.Geometry')
 
-local GeometrySpec = class("GeometrySpec", Spec)
+local GeometrySpec = class('GeometrySpec', Spec)
 
 function GeometrySpec:run()
     self:describe('Geometry', function ()

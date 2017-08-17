@@ -1,7 +1,7 @@
-local Spec = import("app.test.Spec")
-local Timer = import("app.utils.timer.Timer")
+local Spec = import('app.test.Spec')
+local Timer = import('app.utils.timer.Timer')
 
-local TimerSpec = class("TimerSpec", Spec)
+local TimerSpec = class('TimerSpec', Spec)
 
 function TimerSpec:run()
     self:describe('Timer', function ()
@@ -9,7 +9,7 @@ function TimerSpec:run()
             local timer = nil
             local times = 0
         
-            self:before(function ()
+            self:beforeEach(function ()
                 times = 0
                 timer = Timer:create(1, 0, 3, 
                     function (o)
@@ -62,7 +62,7 @@ function TimerSpec:run()
             local timer = nil
             local times = 0
         
-            self:before(function ()
+            self:beforeEach(function ()
                 times = 0
                 timer = Timer:create(1, 2, 3, 
                     function (o)
@@ -115,7 +115,7 @@ function TimerSpec:run()
             local timer = nil
             local receiver = nil
         
-            self:before(function ()
+            self:beforeEach(function ()
                 receiver = nil
                 timer = Timer:create(1, 0, 1, 
                     function (o)
@@ -140,7 +140,7 @@ function TimerSpec:run()
             local timer = nil
             local on_time = false
         
-            self:before(function ()
+            self:beforeEach(function ()
                 timer = Timer:create(1, 0, 3, 
                     function (o)
                         on_time = true

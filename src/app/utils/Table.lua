@@ -1,4 +1,4 @@
-local Table = class("Table")
+local Table = class('Table')
 
 function Table.shallowCopy(t)
     local o = {}
@@ -9,11 +9,13 @@ function Table.shallowCopy(t)
 end
 
 function Table.getSize(t)
-    local size = 0
-    for k, v in pairs(t) do
-        size = size + 1
+    return #table.keys(t)
+end
+
+function Table.clear(t)
+    for k, _ in pairs(t) do 
+        t[k]=nil
     end
-    return size
 end
 
 return Table

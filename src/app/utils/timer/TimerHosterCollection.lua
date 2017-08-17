@@ -1,4 +1,4 @@
-local TimerHosterCollection = class("TimerHosterCollection")
+local TimerHosterCollection = class('TimerHosterCollection')
 
 function TimerHosterCollection:ctor()
     self.collection_ = {}

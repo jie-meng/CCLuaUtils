@@ -1,6 +1,6 @@
-local Table = import("app.utils.Table")
+local Table = import('app.utils.Table')
 
-local TimerHoster = class("TimerHoster")
+local TimerHoster = class('TimerHoster')
 
 function TimerHoster:ctor()
     self.timers_ = {}
@@ -40,7 +40,7 @@ function TimerHoster:getTimerState(id)
     return self.timers_[id]:getState()
 end
 
-function TimerHoster:updateTimers(dt)
+function TimerHoster:passTime(dt)
     local timers = Table.shallowCopy(self.timers_)
     for k, v in pairs(timers) do
         if v:passTime(dt) then
@@ -59,7 +59,7 @@ function TimerHoster:updateTimers(dt)
 end
 
 function TimerHoster:clearTimers()
-    self.timers_ = {}
+    Table.clear(self.timers_)
     return self
 end
 

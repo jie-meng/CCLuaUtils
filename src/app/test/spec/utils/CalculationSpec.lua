@@ -1,7 +1,7 @@
-local Spec = import("app.test.Spec")
-local Calculation = import("app.utils.Calculation")
+local Spec = import('app.test.Spec')
+local Calculation = import('app.utils.Calculation')
 
-local CalculationSpec = class("CalculationSpec", Spec)
+local CalculationSpec = class('CalculationSpec', Spec)
 
 function CalculationSpec:run()
     self:describe('Calculation', function ()
