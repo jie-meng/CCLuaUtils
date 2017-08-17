@@ -101,4 +101,58 @@ function Spec:print(fmt, ...)
     printInfo(self:getIndentWhiteSpace() .. fmt, ...)
 end
 
+function Spec:assertTrue(condition, message)
+    message = message or ''
+    assert(condition, string.format('%s expect true, actual is false. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertFalse(condition, message)
+    message = message or ''
+    assert(not condition, string.format('%s expect false, actual is true. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertNil(value, message)
+    message = message or ''
+    assert(value == nil, string.format('%s expect nil, actual is not nil. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertNotNil(value, message)
+    message = message or ''
+    assert(value ~= nil, string.format('%s expect not nil, actual is nil. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertEquals(expect, actual, message)
+    message = message or ''
+    assert(expect == actual, string.format('%s expect %s, actual is %s. %s', self:__getAssertLocaltionInfo(), tostring(expect), tostring(actual), message))
+end
+
+function Spec:assertNotEquals(expect, actual, message)
+    message = message or ''
+    assert(expect ~= actual, string.format('%s expect not %s, actual is %s. %s', self:__getAssertLocaltionInfo(), tostring(expect), tostring(actual), message))
+end
+
+function Spec:assertStringEmpty(str, message)
+    message = message or ''
+    assert(string.len(str) == 0, string.format('%s expect empty string, actual is not empty string. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertStringNotEmpty(str, message)
+    message = message or ''
+    assert(string.len(str) ~= 0, string.format('%s expect not empty string, actual is empty string. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertStringWhiteSpace(str, message)
+    message = message or ''
+    assert(string.len(string.trim(str)) == 0, string.format('%s expect whitespace string, actual is not whitespace string. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:assertStringNotWhiteSpace(str, message)
+    message = message or ''
+    assert(string.len(string.trim(str)) ~= 0, string.format('%s expect not whitespace string, actual is whitespace string. %s', self:__getAssertLocaltionInfo(), message))
+end
+
+function Spec:__getAssertLocaltionInfo()
+    return string.format('["%s"]:%d: ', debug.getinfo(3, 'S').source, debug.getinfo(3, 'l').currentline)
+end
+
 return Spec
