@@ -1,7 +1,6 @@
 local Spec = import('app.test.Spec')
 local Timer = import('app.utils.timer.Timer')
 local TimerHoster = import('app.utils.timer.TimerHoster')
-local Table = import('app.utils.Table')
 
 local TimerHosterSpec = class('TimerHostSpec', Spec)
 

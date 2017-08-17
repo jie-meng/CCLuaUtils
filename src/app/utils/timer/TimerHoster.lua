@@ -1,5 +1,3 @@
-local Table = import('app.utils.Table')
-
 local TimerHoster = class('TimerHoster')
 
 function TimerHoster:ctor()
@@ -41,25 +39,22 @@ function TimerHoster:getTimerState(id)
 end
 
 function TimerHoster:passTime(dt)
-    local timers = Table.shallowCopy(self.timers_)
-    for k, v in pairs(timers) do
+    table.map(self.timers_, function(v)
         if v:passTime(dt) then
             v.discard = true
         end
-    end
+        return v
+    end)
     
-    local timers_tmp = {}
-    for k, v in pairs(self.timers_) do
-        if not v.discard then
-            timers_tmp[k] = v
-        end
-    end
-    self.timers_ = timers_tmp
+    table.filter(self.timers_, function(v, k)
+        return not v.discard
+    end)
+    
     return self
 end
 
 function TimerHoster:clearTimers()
-    Table.clear(self.timers_)
+    table.clear(self.timers_)
     return self
 end
 

@@ -2,6 +2,7 @@ cc.FileUtils:getInstance():setPopupNotify(false)
 
 require "config"
 require "cocos.init"
+require "extfunctions"
 
 local function main()
     require("app.MyApp"):create():run()

@@ -1,5 +1,3 @@
-local Table = import('app.utils.Table')
-
 local Spec = class('Spec')
 
 function Spec:ctor()
@@ -70,8 +68,8 @@ function Spec:clear()
     self.success_ = 0
     self.fail_ = 0
     self.indent_ = 0
-    Table.clear(self.before_funcs_)
-    Table.clear(self.after_funcs_)
+    table.clear(self.before_funcs_)
+    table.clear(self.after_funcs_)
 end
 
 function Spec:addIndent()
