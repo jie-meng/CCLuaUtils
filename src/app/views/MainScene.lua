@@ -1,3 +1,7 @@
+local StringsImporter = import("app.values.StringsImporter")
+
+local Strings = StringsImporter.import('app.values.Strings')
+
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 
 function MainScene:onCreate()
@@ -7,7 +11,7 @@ function MainScene:onCreate()
         :addTo(self)
 
     -- add HelloWorld label
-    cc.Label:createWithSystemFont("Hello World", "Arial", 40)
+    cc.Label:createWithSystemFont(Strings.GameTitle, "Arial", 40)
         :move(display.cx, display.cy + 200)
         :addTo(self)
 end

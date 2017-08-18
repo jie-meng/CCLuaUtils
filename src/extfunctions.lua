@@ -12,7 +12,7 @@ function table.clear(t)
     end
 end
 
-function table.shallowCopy(t)
+function table.shallowcopy(t)
     local o = {}
     for k, v in pairs(t) do
         o[k] = v
@@ -21,7 +21,7 @@ function table.shallowCopy(t)
     return o
 end
 
-function table.filterShallowCopy(t, fn)
+function table.filtercopy(t, fn)
     local o = {}
     for k, v in pairs(t) do
         if fn(v, k) then
@@ -32,7 +32,7 @@ function table.filterShallowCopy(t, fn)
     return o
 end
 
-function table.mapShallowCopy(t, fn)
+function table.mapcopy(t, fn)
     local o = {}
     for k, v in pairs(t) do
         o[k] = fn(v, k)

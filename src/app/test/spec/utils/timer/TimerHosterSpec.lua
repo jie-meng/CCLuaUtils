@@ -10,7 +10,7 @@ function TimerHosterSpec:run()
             local timer_hoster = nil
             local timer1 = nil
             local timer2 = nil
-            
+
             self:beforeEach(function ()
                 timer_hoster = TimerHoster:create()
                 timer1 = Timer:create(1, 0, 3)

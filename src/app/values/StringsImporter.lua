@@ -1,10 +1,10 @@
 local StringsImporter = class('StringsImporter')
 
-function StringsImporter.importPlatformStrings()
-    if device.language == 'cn' then
-        return import('app.values.StringsCN')
+function StringsImporter.import(path)
+    if device.language == 'en' then
+        return import(path)
     else
-        return import('app.values.Strings')
+        return import(path .. string.upper(device.language))
     end
 end
 

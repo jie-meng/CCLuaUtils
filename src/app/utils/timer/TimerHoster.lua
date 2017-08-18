@@ -49,7 +49,7 @@ function TimerHoster:passTime(dt)
     table.filter(self.timers_, function(v, k)
         return not v.discard
     end)
-    
+
     return self
 end
 
