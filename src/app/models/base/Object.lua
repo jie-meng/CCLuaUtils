@@ -34,24 +34,54 @@ function Object:getPosition()
     return self.position_
 end
 
+function Object:setPosition(position)
+    self.position_ = position
+    return self
+end
+
 function Object:getMoveDirection()
     return self.move_direction_
+end
+
+function Object:setMoveDirection(move_direction)
+    self.move_direction_ = move_direction
+    return self
 end
 
 function Object:getFaceDirection()
     return self.face_direction_
 end
 
+function Object:setFaceDirection(face_direction)
+    self.face_direction_ = face_direction
+    return self
+end
+
 function Object:getSpeed()
     return self.speed_
+end
+
+function Object:setSpeed(speed)
+    self.speed_ = speed
+    return self
 end
 
 function Object:getDistance()
     return self.distance_
 end
 
+function Object:setDistance(distance)
+    self.distance_ = distance
+    return self
+end
+
 function Object:getImage()
     return self.image_
+end
+
+function Object:setImage(image)
+    self.image_ = image
+    return self
 end
 
 function Object:getAnimation()
