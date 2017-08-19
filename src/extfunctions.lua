@@ -12,7 +12,7 @@ function table.clear(t)
     end
 end
 
-function table.shallowcopy(t)
+function table.copy(t)
     local o = {}
     for k, v in pairs(t) do
         o[k] = v
