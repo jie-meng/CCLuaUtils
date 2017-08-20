@@ -1,9 +1,12 @@
 local Object = import('.Object')
+local RoleBaseProperty = import('.components.RoleBaseProperty')
 
-local Role = class('Role', Object)
+local Role = class('Role', Object, RoleBaseProperty)
 
 function Role:ctor()
-    Role.super.ctor(self)
+    Object.ctor(self)
+    RoleBaseProperty.ctor(self)
+    
     self:_setModelType('Role')
     self.hp_max_ = 1
     self.hp_ = 1

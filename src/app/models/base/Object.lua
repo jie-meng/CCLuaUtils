@@ -84,8 +84,4 @@ function Object:setImage(image)
     return self
 end
 
-function Object:getAnimation()
-    return nil
-end
-
 return Object
