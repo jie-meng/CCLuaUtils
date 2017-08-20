@@ -9,6 +9,9 @@ RoleBaseProperty.AGL = 'AGL'
 RoleBaseProperty.LUK = 'LUK'
 
 function RoleBaseProperty:ctor()
+    -- dict
+    self.property_function_dict_ = {}
+    -- properties
     self.strength_ = 1
     self.defense_ = 1
     self.intelligence_ = 1
@@ -16,6 +19,8 @@ function RoleBaseProperty:ctor()
     self.dexterity_ = 1
     self.agility_ = 1
     self.luck_ = 1
+    
+    self:__initPropertyFunctionDict()
 end
 
 function RoleBaseProperty:getStrength()
@@ -79,6 +84,25 @@ end
 function RoleBaseProperty:setLuck(luck)
     self.luck_ = luck
     return self
+end
+
+function RoleBaseProperty:getProperty(property)
+    return self.property_function_dict_[property].get(self)
+end
+
+function RoleBaseProperty:setProperty(property, value)
+    self.property_function_dict_[property].set(self, value)
+    return self
+end
+
+function RoleBaseProperty:__initPropertyFunctionDict()
+    self.property_function_dict_[RoleBaseProperty.STR] = { get = RoleBaseProperty.getStrength, set = RoleBaseProperty.setStrength }
+    self.property_function_dict_[RoleBaseProperty.DEF] = { get = RoleBaseProperty.getDefense, set = RoleBaseProperty.setDefense }
+    self.property_function_dict_[RoleBaseProperty.INT] = { get = RoleBaseProperty.getIntelligence, set = RoleBaseProperty.setIntelligence }
+    self.property_function_dict_[RoleBaseProperty.MND] = { get = RoleBaseProperty.getMind, set = RoleBaseProperty.setMind }
+    self.property_function_dict_[RoleBaseProperty.DEX] = { get = RoleBaseProperty.getDexterity, set = RoleBaseProperty.setDexterity }
+    self.property_function_dict_[RoleBaseProperty.AGL] = { get = RoleBaseProperty.getAgility, set = RoleBaseProperty.setAgility }
+    self.property_function_dict_[RoleBaseProperty.LUK] = { get = RoleBaseProperty.getLuck, set = RoleBaseProperty.setLuck }
 end
 
 return RoleBaseProperty
