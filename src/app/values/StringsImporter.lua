@@ -1,10 +1,10 @@
 local StringsImporter = class('StringsImporter')
 
 function StringsImporter.import(path)
-    if device.language == 'en' then
-        return import(path)
-    else
+    if device.language == 'cn' then
         return import(path .. string.upper(device.language))
+    else
+        return import(path)
     end
 end
 

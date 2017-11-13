@@ -17,7 +17,7 @@ function ObjectAnimation:getRowColCount()
     return self.row_col_count_
 end
 
-function ObjectAnimation:getIndex(es)
+function ObjectAnimation:getIndex()
     return self.indexes_
 end
 
@@ -32,6 +32,5 @@ end
 function ObjectAnimation:isVFlip()
     return self.vflip_
 end
-
 
 return ObjectAnimation
